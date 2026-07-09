@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<full-backup-content>
+    <!--
+   Sample backup rules file. The default includes everything in your app's
+   data directory. Database files (*.db files) in the Database directory
+   are automatically excluded from backup.
+   -->
+
+    <!-- Exclude the app's cache directory from backups -->
+    <exclude domain="cache" path="." />
+
+    <!-- Exclude shared preferences that should not be backed up -->
+    <!-- <exclude domain="sharedpref" path="DeviceId.xml"/> -->
+
+</full-backup-content>

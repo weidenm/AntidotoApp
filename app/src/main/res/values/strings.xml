@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Antídoto</string>
+    <string name="app_description">Treinador de Imunidade Algorítmica</string>
+
+    <!-- Dashboard -->
+    <string name="dashboard_title">Seu uso hoje</string>
+    <string name="attention_cost_title">Custo de Atenção</string>
+    <string name="attention_cost_hours_year">%1$d horas/ano</string>
+    <string name="attention_cost_books">%1$d livros não lidos</string>
+    <string name="attention_cost_courses">%1$d cursos não feitos</string>
+    <string name="last_update">Última atualização: %1$s</string>
+
+    <!-- Check-in -->
+    <string name="checkin_title">Como você está?</string>
+    <string name="checkin_well">Bem</string>
+    <string name="checkin_neutral">Neutro</string>
+    <string name="checkin_anxious">Ansioso</string>
+    <string name="checkin_tired">Cansado</string>
+    <string name="checkin_trigger_title">O que te puxou pro celular?</string>
+    <string name="checkin_trigger_boredom">Tédio</string>
+    <string name="checkin_trigger_anxiety">Ansiedade</string>
+    <string name="checkin_trigger_habit">Hábito</string>
+    <string name="checkin_trigger_work">Trabalho</string>
+
+    <!-- Goals -->
+    <string name="goals_title">Minha Meta</string>
+    <string name="goals_weekly_target">Meta semanal</string>
+    <string name="goals_remaining_today">%1$d minutos restantes hoje</string>
+    <string name="goals_suggest_reduction">Redução sugerida: %1$d min/semana</string>
+
+    <!-- Streak -->
+    <string name="streak_days">%1$d dias</string>
+    <string name="streak_title">Streak</string>
+    <string name="streak_congratulations">Parabéns! Estou percebendo sua consistência.</string>
+
+    <!-- Lessons -->
+    <string name="lessons_title">Trilha de Alfabetização</string>
+    <string name="lessons_count">%1$d/15 completas</string>
+    <string name="lessons_today">Lição de hoje</string>
+    <string name="lessons_read_now">Ler agora</string>
+    <string name="lessons_understood">Entendi</string>
+
+    <!-- Settings -->
+    <string name="settings_title">Configurações</string>
+    <string name="settings_checkin_time">Hora do check-in diário</string>
+    <string name="settings_notifications">Notificações</string>
+    <string name="settings_notifications_daily">Resumo diário</string>
+    <string name="settings_notifications_peak">Pico de uso</string>
+    <string name="settings_revoke_permission">Revogar permissão de uso</string>
+
+    <!-- Permissions -->
+    <string name="permission_usage_stats_title">Acesso ao uso de apps</string>
+    <string name="permission_usage_stats_desc">Precisamos acessar seu uso de apps para mostrar o dashboard de atenção.</string>
+</resources>

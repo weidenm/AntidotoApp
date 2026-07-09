@@ -1,0 +1,42 @@
+# Gradle
+.gradle/
+build/
+*.apk
+*.ap_
+*.aab
+*.class
+*.jar
+*.war
+
+# Android Studio
+.idea/
+*.iml
+*.iws
+*.ipr
+*.swp
+*~
+.classpath
+.project
+.settings/
+
+# Local
+local.properties
+gradle.properties
+signing.properties
+release.keystore
+*.jks
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Build output
+out/
+gen/
+
+# Log files
+*.log
+
+# Test coverage
+coverage/
+.coverage
