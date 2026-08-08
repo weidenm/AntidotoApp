@@ -15,6 +15,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.clearAndSetSemantics
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.antidoto.R
@@ -24,8 +27,18 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import java.time.LocalDate
 import java.time.format.TextStyle
 import java.util.Locale
+import java.util.concurrent.TimeUnit
 
 private val BR = Locale("pt", "BR")
+
+private fun weeklyContentDescription(title: String, weeklyUsage: List<DailyUsage>): String {
+    val perDay = weeklyUsage.joinToString(", ") { day ->
+        val minutes = TimeUnit.MILLISECONDS.toMinutes(day.totalMs)
+        val label = day.date.dayOfWeek.getDisplayName(TextStyle.FULL, BR)
+        "$label ${minutes / 60}h ${minutes % 60}min"
+    }
+    return "$title. $perDay"
+}
 
 @Composable
 fun WeeklyTrendChart(
@@ -34,18 +47,22 @@ fun WeeklyTrendChart(
 ) {
     val maxMs = (weeklyUsage.maxOfOrNull { it.totalMs } ?: 0L).coerceAtLeast(1L)
     val today = LocalDate.now()
+    val title = stringResource(R.string.dashboard_weekly_title)
+    val chartDescription = weeklyContentDescription(title, weeklyUsage)
 
     Card(modifier = modifier.fillMaxWidth()) {
         Column(Modifier.padding(20.dp)) {
             Text(
-                text = stringResource(R.string.dashboard_weekly_title),
+                text = title,
                 style = MaterialTheme.typography.titleMedium,
             )
             Spacer(Modifier.height(16.dp))
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(120.dp),
+                    .height(120.dp)
+                    // The bar chart is decorative; expose one summary to screen readers.
+                    .clearAndSetSemantics { contentDescription = chartDescription },
                 horizontalArrangement = Arrangement.spacedBy(8.dp),
                 verticalAlignment = Alignment.Bottom,
             ) {
