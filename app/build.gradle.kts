@@ -1,9 +1,22 @@
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.kapt)
     alias(libs.plugins.hilt)
+    jacoco
 }
+
+// Release signing is read from keystore.properties (gitignored) or ANTIDOTO_* env
+// vars. When neither is present (CI / local dev), release falls back to debug
+// signing so assembleRelease still succeeds.
+val keystorePropsFile = rootProject.file("keystore.properties")
+val keystoreProps = Properties().apply {
+    if (keystorePropsFile.exists()) keystorePropsFile.inputStream().use { load(it) }
+}
+fun signingValue(propKey: String, envKey: String): String? =
+    keystoreProps.getProperty(propKey) ?: System.getenv(envKey)
 
 android {
     namespace = "com.antidoto"
@@ -22,11 +35,31 @@ android {
         }
     }
 
+    signingConfigs {
+        create("release") {
+            val storePath = signingValue("storeFile", "ANTIDOTO_STORE_FILE")
+            if (storePath != null) {
+                storeFile = file(storePath)
+                storePassword = signingValue("storePassword", "ANTIDOTO_STORE_PASSWORD")
+                keyAlias = signingValue("keyAlias", "ANTIDOTO_KEY_ALIAS")
+                keyPassword = signingValue("keyPassword", "ANTIDOTO_KEY_PASSWORD")
+            }
+        }
+    }
+
     buildTypes {
         release {
             isMinifyEnabled = true
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
-            signingConfig = signingConfigs.getByName("debug") // Will be replaced in release builds
+            val releaseSigning = signingConfigs.getByName("release")
+            signingConfig = if (releaseSigning.storeFile != null) {
+                releaseSigning
+            } else {
+                signingConfigs.getByName("debug")
+            }
+        }
+        debug {
+            enableUnitTestCoverage = true
         }
     }
 
@@ -86,10 +119,40 @@ dependencies {
 
     // Testing
     testImplementation(libs.junit)
+    testImplementation(libs.kotlinx.coroutines.test)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.espresso.core)
     androidTestImplementation(platform(libs.compose.bom))
     androidTestImplementation(libs.compose.ui)
     androidTestImplementation(libs.android.test)
     androidTestImplementation(libs.work.manager.testing)
+    androidTestImplementation(libs.kotlinx.coroutines.test)
+    androidTestImplementation(libs.room.testing)
+}
+
+// Aggregated unit-test coverage report: ./gradlew jacocoTestReport
+tasks.register<JacocoReport>("jacocoTestReport") {
+    dependsOn("testDebugUnitTest")
+    group = "verification"
+    description = "Generates JaCoCo coverage for the debug unit tests."
+
+    reports {
+        html.required.set(true)
+        xml.required.set(true)
+    }
+
+    val excludes = listOf(
+        "**/R.class", "**/R$*.class", "**/BuildConfig.*", "**/Manifest*.*",
+        "**/*_Hilt*.*", "**/Hilt_*.*", "**/*_Factory.*", "**/*_MembersInjector.*",
+        "**/*Module.*", "**/*Module_*.*", "**/dagger/**", "**/hilt_aggregated_deps/**",
+        "**/*_GeneratedInjector.*", "**/*ComposableSingletons*.*", "**/databinding/**",
+    )
+    val kotlinClasses = fileTree(layout.buildDirectory.dir("tmp/kotlin-classes/debug")) {
+        setExcludes(excludes)
+    }
+    classDirectories.setFrom(kotlinClasses)
+    sourceDirectories.setFrom(files("src/main/kotlin"))
+    executionData.setFrom(
+        fileTree(layout.buildDirectory) { include("**/testDebugUnitTest.exec") },
+    )
 }
