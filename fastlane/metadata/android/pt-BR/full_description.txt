@@ -1,0 +1,18 @@
+O Antídoto não é um bloqueador. É um treinador de imunidade algorítmica: ajuda você a entender os mecanismos que prendem sua atenção, a enxergar seu próprio uso e a criar metas gentis — sem culpa e sem coerção.
+
+100% LOCAL-FIRST
+Nenhum dado sai do seu aparelho. Sem servidores, sem rastreadores, sem anúncios. Tudo fica no seu celular.
+
+O QUE VOCÊ ENCONTRA
+• Painel de atenção: veja seu tempo de tela de hoje e o "custo de atenção" projetado no ano, traduzido em livros não lidos e cursos não feitos.
+• Tendência semanal: um gráfico simples do seu uso ao longo da semana.
+• Check-in gentil: registre humor e o gatilho que te levou ao celular e acompanhe sua sequência (streak).
+• Metas por app: defina limites semanais para os apps que mais consomem sua atenção.
+• Trilha de alfabetização: 15 micro-lições sobre rolagem infinita, recompensa variável, notificações, FOMO, padrões escuros e mais.
+• Lembrete diário opcional para o check-in.
+
+PRIVACIDADE EM PRIMEIRO LUGAR
+O Antídoto usa apenas a API oficial de bem-estar digital do Android (acesso a estatísticas de uso) e notificações — ambas concedidas por você e revogáveis a qualquer momento. Não usamos Serviço de Acessibilidade, sobreposição de tela nem VPN. Alinhado à LGPD.
+
+PARA QUEM É
+Para quem quer uma relação mais consciente com o celular, sem apps que bloqueiam à força ou geram culpa. Um passo de cada vez, um check-in de cada vez.
