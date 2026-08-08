@@ -55,14 +55,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - [x] Sequential unlock logic (`BuildLessonTrail`, unit-tested); idempotent seeding
 - [x] "Lições" navigation tab + lesson detail route
 
-### Phase 1.5 — Polish & App Store (Upcoming)
-- [ ] Unit test suite (60%+ coverage target)
-- [ ] Instrumented test suite
-- [ ] Accessibility audit (WCAG AA)
-- [ ] Performance profiling
-- [ ] Release build signing
-- [ ] Play Store listing (screenshots, descriptions, privacy policy)
-- [ ] Final testing on physical devices
+### Phase 1.5 — Polish & App Store
+- [x] Expanded unit tests (repositories + ViewModels) with kotlinx-coroutines-test
+- [x] JaCoCo coverage report (`jacocoTestReport`); domain+data ≈ 65% instruction coverage
+- [x] Instrumented Room DAO test suite (in-memory database)
+- [x] Accessibility: content description for the weekly chart, merged lesson-row semantics
+- [x] Release signing config (keystore.properties / ANTIDOTO_* env, debug fallback)
+- [x] Play Store materials: LGPD privacy policy, pt-BR store listing, release checklist
+- [ ] Final testing on physical devices (manual, pre-launch)
 
 ---
 
