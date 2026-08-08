@@ -63,7 +63,9 @@ fun HomeScreen(viewModel: DashboardViewModel) {
         )
     }
 
-    Scaffold { innerPadding ->
+    Scaffold(
+        contentWindowInsets = androidx.compose.foundation.layout.WindowInsets(0, 0, 0, 0),
+    ) { innerPadding ->
         when (val state = uiState) {
             is DashboardUiState.Loading -> CenteredContent(innerPadding) {
                 CircularProgressIndicator()
@@ -134,6 +136,8 @@ private fun DashboardContent(
         if (!usageAccessGranted) {
             item { UsagePermissionBanner(onGrantClick = onGrantAccess) }
         }
+
+        item { StreakCard(streakDays = data.currentStreakDays) }
 
         item { AttentionCostCard(cost = data.attentionCost) }
 

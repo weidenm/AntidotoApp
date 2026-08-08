@@ -10,6 +10,7 @@ data class DashboardData(
     val attentionCost: AttentionCost,
     val weeklyUsage: List<DailyUsage>,
     val goals: List<Goal>,
+    val currentStreakDays: Int,
 ) {
     val hasUsageData: Boolean get() = totalTodayMs > 0 || weeklyUsage.any { it.totalMs > 0 }
 }
