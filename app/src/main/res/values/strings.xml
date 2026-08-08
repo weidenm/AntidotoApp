@@ -61,6 +61,13 @@
     <string name="lessons_today">Lição de hoje</string>
     <string name="lessons_read_now">Ler agora</string>
     <string name="lessons_understood">Entendi</string>
+    <string name="nav_lessons">Lições</string>
+    <string name="lessons_progress">%1$d de %2$d concluídas</string>
+    <string name="lessons_number">Lição %1$d</string>
+    <string name="lessons_completed_badge">Concluída</string>
+    <string name="lessons_locked_hint">Conclua a lição anterior para desbloquear.</string>
+    <string name="lesson_already_completed">Você já concluiu esta lição.</string>
+    <string name="common_back">Voltar</string>
 
     <!-- Settings -->
     <string name="settings_title">Configurações</string>
