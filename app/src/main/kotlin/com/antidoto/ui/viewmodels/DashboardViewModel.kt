@@ -4,11 +4,13 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.antidoto.data.db.entities.AppUsageEntry
 import com.antidoto.data.db.entities.Goal
+import com.antidoto.data.repository.CheckInRepository
 import com.antidoto.data.repository.GoalRepository
 import com.antidoto.data.repository.UsageStatsRepository
 import com.antidoto.domain.model.DailyUsage
 import com.antidoto.domain.model.DashboardData
 import com.antidoto.domain.usecase.CalculateCostOfAttention
+import com.antidoto.domain.usecase.StreakCalculator
 import dagger.hilt.android.lifecycle.HiltViewModel
 import java.time.LocalDate
 import javax.inject.Inject
@@ -25,7 +27,9 @@ import kotlinx.coroutines.launch
 class DashboardViewModel @Inject constructor(
     private val usageStatsRepository: UsageStatsRepository,
     private val goalRepository: GoalRepository,
+    private val checkInRepository: CheckInRepository,
     private val calculateCostOfAttention: CalculateCostOfAttention,
+    private val streakCalculator: StreakCalculator,
 ) : ViewModel() {
 
     private val _uiState = MutableStateFlow<DashboardUiState>(DashboardUiState.Loading)
@@ -46,9 +50,10 @@ class DashboardViewModel @Inject constructor(
             usageStatsRepository.getAppsForToday(),
             usageStatsRepository.getEntriesBetween(weekStart, weekEnd),
             goalRepository.getActiveGoals(),
+            checkInRepository.observeCheckInDays(),
             _usageAccessGranted,
-        ) { todayEntries, weekEntries, goals, accessGranted ->
-            buildReadyState(todayEntries, weekEntries, goals, weekStart, accessGranted)
+        ) { todayEntries, weekEntries, goals, checkInDays, accessGranted ->
+            buildReadyState(todayEntries, weekEntries, goals, checkInDays, weekStart, accessGranted)
         }
             .onEach { _uiState.value = it }
             .catch { throwable ->
@@ -61,6 +66,7 @@ class DashboardViewModel @Inject constructor(
         todayEntries: List<AppUsageEntry>,
         weekEntries: List<AppUsageEntry>,
         goals: List<Goal>,
+        checkInDays: List<LocalDate>,
         weekStart: LocalDate,
         accessGranted: Boolean,
     ): DashboardUiState.Ready {
@@ -80,6 +86,7 @@ class DashboardViewModel @Inject constructor(
             attentionCost = calculateCostOfAttention(totalTodayMs),
             weeklyUsage = weeklyUsage,
             goals = goals,
+            currentStreakDays = streakCalculator.calculate(checkInDays),
         )
         return DashboardUiState.Ready(data = data, usageAccessGranted = accessGranted)
     }

@@ -38,13 +38,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - [x] Usage-access permission banner with deep-link to system Settings + refresh-on-resume
 - [x] Switched app theme to NoActionBar so Compose owns the full screen
 
-### Phase 1.3 — Habit Loop (Upcoming)
-- [ ] CheckInScreen (mood + trigger)
-- [ ] GoalsScreen (set weekly targets)
-- [ ] Streak tracking & display
-- [ ] NotificationService
-- [ ] Daily reminder scheduling
-- [ ] SettingsScreen
+### Phase 1.3 — Habit Loop
+- [x] Bottom-navigation shell (Início / Check-in / Metas / Ajustes) with Navigation Compose
+- [x] CheckInScreen: mood + trigger selection, recorded via `CheckInRepository`
+- [x] Streak tracking (`StreakCalculator`, unit-tested) shown on Home and Check-in
+- [x] GoalsScreen: set weekly per-app targets (upsert via unique app+week index)
+- [x] SettingsScreen: daily-reminder toggle, reminder hour, usage-access shortcut
+- [x] NotificationHelper + `CheckInReminderWorker` + `ReminderScheduler` (daily reminder)
+- [x] POST_NOTIFICATIONS runtime request; WorkManager-scheduled daily reminder
 
 ### Phase 1.4 — Lessons & Trail (Upcoming)
 - [ ] 15 micro-lessons content
