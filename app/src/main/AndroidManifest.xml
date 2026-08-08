@@ -1,21 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- Digital Wellbeing: Official API for access stats -->
-    <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS" />
+    <!-- Digital Wellbeing: Official API for access stats.
+         PACKAGE_USAGE_STATS is an appop permission the user grants via the
+         system Settings deep-link flow, so the ProtectedPermissions check
+         does not apply to this app. -->
+    <uses-permission
+        android:name="android.permission.PACKAGE_USAGE_STATS"
+        tools:ignore="ProtectedPermissions" />
 
     <!-- Notifications: Required for daily check-in reminders -->
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 
     <application
+        android:name=".AntidotoApplication"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Antidoto"
-        android:debuggable="false">
+        android:theme="@style/Theme.Antidoto">
 
         <activity
             android:name=".MainActivity"
