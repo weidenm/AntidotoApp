@@ -29,13 +29,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - [x] Manifest `<queries>` limited to launchable apps (no `QUERY_ALL_PACKAGES`)
 - [x] Unit tests: usage aggregator (10 cases), LocalDate converters, week-start logic (16 total)
 
-### Phase 1.2 — Dashboard Core (Upcoming)
-- [ ] HomeScreen Composable
-- [ ] Dashboard data models
-- [ ] Attention Cost calculations
-- [ ] Weekly usage trend chart
-- [ ] App list with usage breakdown
-- [ ] DashboardViewModel
+### Phase 1.2 — Dashboard Core
+- [x] `DashboardViewModel` (Hilt) combining today/weekly usage + active goals into UI state
+- [x] Dashboard data models (`DashboardData`, `DailyUsage`, `AttentionCost`) and `DashboardUiState`
+- [x] `CalculateCostOfAttention` use case (yearly projection → books/courses), unit-tested
+- [x] `HomeScreen` Composable with Loading / Error / Ready states
+- [x] Attention Cost card, weekly usage trend chart, and per-app usage breakdown list
+- [x] Usage-access permission banner with deep-link to system Settings + refresh-on-resume
+- [x] Switched app theme to NoActionBar so Compose owns the full screen
 
 ### Phase 1.3 — Habit Loop (Upcoming)
 - [ ] CheckInScreen (mood + trigger)
