@@ -7,6 +7,8 @@ build/
 *.class
 *.jar
 *.war
+# The Gradle wrapper jar MUST be committed so ./gradlew works everywhere.
+!gradle/wrapper/gradle-wrapper.jar
 
 # Android Studio
 .idea/
@@ -20,8 +22,8 @@ build/
 .settings/
 
 # Local
+# local.properties is machine-specific (points to the Android SDK) and stays ignored.
 local.properties
-gradle.properties
 signing.properties
 release.keystore
 *.jks
