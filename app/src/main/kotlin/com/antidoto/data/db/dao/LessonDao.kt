@@ -19,6 +19,12 @@ interface LessonDao {
     )
     fun getAllLessons(): Flow<List<Lesson>>
 
+    @Query(
+        "SELECT id, title, content, imageUrl, completedAt, orderIndex FROM lessons " +
+            "WHERE id = :lessonId",
+    )
+    fun getLessonById(lessonId: String): Flow<Lesson?>
+
     @Query("UPDATE lessons SET completedAt = :completedAtMs WHERE id = :lessonId")
     suspend fun markCompleted(lessonId: String, completedAtMs: Long)
 
