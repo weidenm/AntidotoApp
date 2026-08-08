@@ -17,13 +17,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - [x] README with setup instructions
 - [x] ProGuard rules for release builds
 
-### Phase 1.1 — Data Layer (In Progress)
-- [ ] Room database setup with SQLite
-- [ ] Entity definitions (AppUsageEntry, CheckIn, Lesson, Goal, Streak)
-- [ ] DAO implementations
-- [ ] UsageStatsRepository wrapper
-- [ ] WorkManager for background sync
-- [ ] Unit & instrumented tests
+### Phase 1.1 — Data Layer
+- [x] Room database setup with SQLite (`AppDatabase`, `LocalDate` converters)
+- [x] Entity definitions (AppUsageEntry, CheckIn, Lesson, Goal) + Streak domain model
+- [x] DAO implementations (usage, check-ins, lessons, goals) with explicit column projections
+- [x] UsageStatsRepository wrapping UsageStatsManager (event-based aggregation)
+- [x] UsageEventAggregator: pure, JVM-testable session aggregation with open-count merge gap
+- [x] Repositories: CheckInRepository, GoalRepository, LessonRepository
+- [x] SyncUsageWorker (WorkManager + Hilt, 30 min periodic, retry up to 3x)
+- [x] AntidotoApplication provides HiltWorkerFactory and schedules background sync
+- [x] Manifest `<queries>` limited to launchable apps (no `QUERY_ALL_PACKAGES`)
+- [x] Unit tests: usage aggregator (10 cases), LocalDate converters, week-start logic (16 total)
 
 ### Phase 1.2 — Dashboard Core (Upcoming)
 - [ ] HomeScreen Composable
