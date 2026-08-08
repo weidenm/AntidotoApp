@@ -47,12 +47,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - [x] NotificationHelper + `CheckInReminderWorker` + `ReminderScheduler` (daily reminder)
 - [x] POST_NOTIFICATIONS runtime request; WorkManager-scheduled daily reminder
 
-### Phase 1.4 — Lessons & Trail (Upcoming)
-- [ ] 15 micro-lessons content
-- [ ] LessonsTrailScreen
-- [ ] Lesson detail screen
-- [ ] Lesson completion tracking
-- [ ] Daily lesson unlocking logic
+### Phase 1.4 — Lessons & Trail
+- [x] 15 micro-lessons content (`LessonSeed`, pt-BR algorithmic-literacy)
+- [x] `LessonsTrailScreen` with completion progress and per-lesson status
+- [x] `LessonDetailScreen` with content and "Entendi" completion action
+- [x] Lesson completion tracking via `LessonRepository`
+- [x] Sequential unlock logic (`BuildLessonTrail`, unit-tested); idempotent seeding
+- [x] "Lições" navigation tab + lesson detail route
 
 ### Phase 1.5 — Polish & App Store (Upcoming)
 - [ ] Unit test suite (60%+ coverage target)

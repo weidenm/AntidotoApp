@@ -13,6 +13,8 @@ class LessonRepository @Inject constructor(
 
     fun getAllLessons(): Flow<List<Lesson>> = lessonDao.getAllLessons()
 
+    fun getLesson(id: String): Flow<Lesson?> = lessonDao.getLessonById(id)
+
     fun getCompletedCount(): Flow<Int> = lessonDao.getCompletedCount()
 
     suspend fun seedLessons(lessons: List<Lesson>) = lessonDao.insertAll(lessons)
