@@ -5,11 +5,32 @@
 
     <!-- Dashboard -->
     <string name="dashboard_title">Seu uso hoje</string>
+    <string name="dashboard_total_today">Tempo de tela hoje</string>
+    <string name="dashboard_weekly_title">Uso na semana</string>
+    <string name="dashboard_apps_title">Apps de hoje</string>
+    <string name="dashboard_refresh">Atualizar</string>
+    <string name="dashboard_empty_title">Ainda sem dados de uso</string>
+    <string name="dashboard_empty_desc">Assim que houver atividade registrada, seu painel de atenção aparece aqui.</string>
+    <string name="dashboard_error_title">Não foi possível carregar</string>
     <string name="attention_cost_title">Custo de Atenção</string>
+    <string name="attention_cost_subtitle">Se cada dia fosse como hoje, em um ano isso seria:</string>
     <string name="attention_cost_hours_year">%1$d horas/ano</string>
     <string name="attention_cost_books">%1$d livros não lidos</string>
     <string name="attention_cost_courses">%1$d cursos não feitos</string>
+    <string name="attention_hours_label">horas/ano</string>
+    <string name="attention_books_label">livros não lidos</string>
+    <string name="attention_courses_label">cursos não feitos</string>
     <string name="last_update">Última atualização: %1$s</string>
+
+    <!-- Usage permission (dashboard banner) -->
+    <string name="usage_permission_banner_title">Ative o acesso ao uso</string>
+    <string name="usage_permission_banner_desc">Precisamos da permissão de uso de apps para montar seu painel. Nenhum dado sai do aparelho.</string>
+    <string name="usage_permission_grant">Conceder acesso</string>
+
+    <!-- Usage formatting -->
+    <string name="usage_duration_hm">%1$dh %2$dmin</string>
+    <string name="usage_duration_min">%1$dmin</string>
+    <string name="usage_open_count">%1$d aberturas</string>
 
     <!-- Check-in -->
     <string name="checkin_title">Como você está?</string>
