@@ -2,16 +2,21 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- Digital Wellbeing: Official API for access stats.
-         PACKAGE_USAGE_STATS is an appop permission the user grants via the
-         system Settings deep-link flow, so the ProtectedPermissions check
-         does not apply to this app. -->
+    <!-- Digital Wellbeing: official API for usage stats -->
     <uses-permission
         android:name="android.permission.PACKAGE_USAGE_STATS"
         tools:ignore="ProtectedPermissions" />
 
-    <!-- Notifications: Required for daily check-in reminders -->
+    <!-- Notifications: daily check-in reminders -->
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
+    <!-- Visibility of launchable apps only — never QUERY_ALL_PACKAGES -->
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent>
+    </queries>
 
     <application
         android:name=".AntidotoApplication"
@@ -32,6 +37,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- Disable WorkManager auto-init: AntidotoApplication provides HiltWorkerFactory -->
+        <provider
+            android:name="androidx.startup.InitializationProvider"
+            android:authorities="${applicationId}.androidx-startup"
+            android:exported="false"
+            tools:node="merge">
+            <meta-data
+                android:name="androidx.work.WorkManagerInitializer"
+                android:value="androidx.startup"
+                tools:node="remove" />
+        </provider>
 
     </application>
 

@@ -6,12 +6,14 @@ lifecycle = "2.7.0"
 composeBom = "2024.02.00"
 composeCompiler = "1.5.8"
 room = "2.6.1"
-workManager = "2.8.1"
+workManager = "2.9.0"
 hilt = "2.50"
+navigationCompose = "2.7.7"
 androidx-junit = "1.1.5"
 junit = "4.13.2"
 espresso = "3.5.1"
 androidTest = "1.5.2"
+coroutines = "1.7.3"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -37,8 +39,13 @@ hilt-compiler = { group = "com.google.dagger", name = "hilt-compiler", version.r
 hilt-work = { group = "androidx.hilt", name = "hilt-work", version = "1.1.0" }
 hilt-compiler-work = { group = "androidx.hilt", name = "hilt-compiler", version = "1.1.0" }
 
+navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigationCompose" }
+hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version = "1.1.0" }
+
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidx-junit" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
+kotlinx-coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "coroutines" }
+room-testing = { group = "androidx.room", name = "room-testing", version.ref = "room" }
 espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espresso" }
 android-test = { group = "androidx.test", name = "runner", version.ref = "androidTest" }
 

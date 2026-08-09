@@ -5,11 +5,32 @@
 
     <!-- Dashboard -->
     <string name="dashboard_title">Seu uso hoje</string>
+    <string name="dashboard_total_today">Tempo de tela hoje</string>
+    <string name="dashboard_weekly_title">Uso na semana</string>
+    <string name="dashboard_apps_title">Apps de hoje</string>
+    <string name="dashboard_refresh">Atualizar</string>
+    <string name="dashboard_empty_title">Ainda sem dados de uso</string>
+    <string name="dashboard_empty_desc">Assim que houver atividade registrada, seu painel de atenção aparece aqui.</string>
+    <string name="dashboard_error_title">Não foi possível carregar</string>
     <string name="attention_cost_title">Custo de Atenção</string>
+    <string name="attention_cost_subtitle">Se cada dia fosse como hoje, em um ano isso seria:</string>
     <string name="attention_cost_hours_year">%1$d horas/ano</string>
     <string name="attention_cost_books">%1$d livros não lidos</string>
     <string name="attention_cost_courses">%1$d cursos não feitos</string>
+    <string name="attention_hours_label">horas/ano</string>
+    <string name="attention_books_label">livros não lidos</string>
+    <string name="attention_courses_label">cursos não feitos</string>
     <string name="last_update">Última atualização: %1$s</string>
+
+    <!-- Usage permission (dashboard banner) -->
+    <string name="usage_permission_banner_title">Ative o acesso ao uso</string>
+    <string name="usage_permission_banner_desc">Precisamos da permissão de uso de apps para montar seu painel. Nenhum dado sai do aparelho.</string>
+    <string name="usage_permission_grant">Conceder acesso</string>
+
+    <!-- Usage formatting -->
+    <string name="usage_duration_hm">%1$dh %2$dmin</string>
+    <string name="usage_duration_min">%1$dmin</string>
+    <string name="usage_open_count">%1$d aberturas</string>
 
     <!-- Check-in -->
     <string name="checkin_title">Como você está?</string>
@@ -40,6 +61,13 @@
     <string name="lessons_today">Lição de hoje</string>
     <string name="lessons_read_now">Ler agora</string>
     <string name="lessons_understood">Entendi</string>
+    <string name="nav_lessons">Lições</string>
+    <string name="lessons_progress">%1$d de %2$d concluídas</string>
+    <string name="lessons_number">Lição %1$d</string>
+    <string name="lessons_completed_badge">Concluída</string>
+    <string name="lessons_locked_hint">Conclua a lição anterior para desbloquear.</string>
+    <string name="lesson_already_completed">Você já concluiu esta lição.</string>
+    <string name="common_back">Voltar</string>
 
     <!-- Settings -->
     <string name="settings_title">Configurações</string>
@@ -52,4 +80,47 @@
     <!-- Permissions -->
     <string name="permission_usage_stats_title">Acesso ao uso de apps</string>
     <string name="permission_usage_stats_desc">Precisamos acessar seu uso de apps para mostrar o dashboard de atenção.</string>
+
+    <!-- Navigation -->
+    <string name="nav_home">Início</string>
+    <string name="nav_checkin">Check-in</string>
+    <string name="nav_goals">Metas</string>
+    <string name="nav_settings">Ajustes</string>
+
+    <!-- Streak -->
+    <string name="streak_label">Sequência de check-ins</string>
+    <string name="streak_zero_hint">Faça seu primeiro check-in para começar uma sequência.</string>
+    <plurals name="streak_days_plural">
+        <item quantity="one">%1$d dia seguido</item>
+        <item quantity="other">%1$d dias seguidos</item>
+    </plurals>
+
+    <!-- Check-in -->
+    <string name="checkin_save">Registrar check-in</string>
+    <string name="checkin_saved">Check-in registrado</string>
+    <string name="checkin_today_count">%1$d check-ins hoje</string>
+    <string name="checkin_mood_section">Como você está?</string>
+    <string name="checkin_trigger_section">O que te puxou pro celular?</string>
+
+    <!-- Goals -->
+    <string name="goals_screen_title">Minhas metas</string>
+    <string name="goals_empty">Nenhum app com uso hoje para definir metas.</string>
+    <string name="goals_target_minutes">Meta (min/semana)</string>
+    <string name="goals_target_set">Meta: %1$d min/semana</string>
+    <string name="goals_no_target">Sem meta definida</string>
+    <string name="goals_save">Salvar meta</string>
+
+    <!-- Settings -->
+    <string name="settings_reminders_enabled">Lembrete diário de check-in</string>
+    <string name="settings_reminders_desc">Uma notificação gentil por dia para registrar como você está.</string>
+    <string name="settings_reminder_time">Horário do lembrete</string>
+    <string name="settings_reminder_time_value">%1$02d:00</string>
+    <string name="settings_permissions_section">Permissões</string>
+    <string name="settings_open_usage_access">Gerenciar acesso ao uso</string>
+
+    <!-- Notifications -->
+    <string name="notification_channel_reminders">Lembretes</string>
+    <string name="notification_channel_reminders_desc">Lembrete diário para check-in</string>
+    <string name="notification_checkin_title">Hora do check-in</string>
+    <string name="notification_checkin_text">Como você está agora? Toque para registrar.</string>
 </resources>
