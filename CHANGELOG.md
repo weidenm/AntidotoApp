@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+**MVP feature-complete** — todas as fases 1.0–1.5 implementadas. Pendências antes do `1.0.0-mvp`: teste final em dispositivo físico e submissão à Play Store.
+
 ### Phase 1.0 — Infra & Setup
 - [x] Android project scaffolding with Kotlin + Jetpack Compose
 - [x] Material 3 theme setup (light + dark mode)
@@ -80,6 +82,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Notes
 
-- Each phase corresponds to 1-2 weeks of development
-- Total timeline: 6-8 weeks for MVP (Phase 1.0-1.5)
-- Future phases (2-4) will add friction interventions, LGPD data importer, and monetization
+- Fases 1.0–1.5 (MVP) implementadas; ver o status de cada uma acima
+- Antes do release `1.0.0-mvp`: teste em dispositivo físico e envio à Play Store
+- Fases pós-MVP (2–4): intervenções de fricção (Atalho de Intenção), importador de dados LGPD e monetização — ver `CLAUDE.md`
